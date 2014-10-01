@@ -1,0 +1,21 @@
+title: Intro
+id: 1
+
+next:
+ - text: Structure of a page
+   id: 2
+
+content: |
+ # Story structure
+
+ ### A story is a succession of pages.
+
+ The player traverse the story by going from page to page until he is stuck in
+ a dead-end or he reaches the end. Each page is composed of a text describing 
+ what happens in the story, and links to 0, 1 or more pages to continue the
+ story.
+
+ ### On the server
+
+ A story is a simple directory containing `.yaml` files. The name of the story
+ comes from the name of the directory.

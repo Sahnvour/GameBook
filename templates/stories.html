@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}Interactive stories{% endblock %}
+{% block content %}
+    <div class="col-md-9">
+
+        <h1>Stories</h1>
+
+        <table class="table table-hover">
+            {% for story in stories %}
+                <tr>
+                    <td>
+                        <a href="{{ url_for('story_view', story_title=story.slug) }}">{{ story.title }}</a>
+                    </td>
+                    <td>
+                        {% if runs[story.slug] %}
+                            {% set progress = story.progress(runs[story.slug]) %}
+                            {% set page_id = runs[story.slug] %}
+                            {% set page = story.pages[page_id] %}
+                            <div class="progress" style="">
+                            <div class="progress-bar progress-bar-{% if page.id == len(story.pages) %}success{% elif len(page.links) %}info{% else %}danger{% endif %}"
+                                 role="progressbar"
+                                 aria-valuenow="{{ progress }}"
+                                 aria-valuemin="0" aria-valuemax="100"
+                                 style="width: {{ progress }}%;"></div>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <hr>
+
+        <a href="{{ url_for('reset') }}">Reset all stories</a>
+
+    </div>
+{% endblock %}

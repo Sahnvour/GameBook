@@ -1,0 +1,12 @@
+title: Success
+id: 5
+
+next:
+ - text: Variables
+   id: 7
+
+content: |
+ # Hooray!
+
+ The random event you choose succeeded. You can see the green notification at
+ the top of the page. In case of a failure, it will warn you too but in orange.

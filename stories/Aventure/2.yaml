@@ -1,0 +1,10 @@
+title: "L'échappée"
+id: 2
+
+vars:
+ - force: 1
+ - intelligence: 4
+ - dehors: True
+
+content: |
+ Sortir par la porte était effectivement la chose la plus intelligente ($intelligence) à faire.

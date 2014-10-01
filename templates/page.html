@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='marked.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='page.js') }}"></script>
+{% endblock %}
+
+
+{% block title %}{{ story.title }}{% endblock %}
+
+
+{% block content %}
+    <div class="col-md-9">
+
+        <ol class="breadcrumb">
+            <li><a href="{{ url_for('story_list') }}">Stories</a></li>
+            <li><a href="#">{{ story.title }}</a></li>
+            <li class="active">{{ put_vars(page.title, vars) }}</li>
+        </ol>
+
+
+        <h1 class="page-header">{{ put_vars(page.title, vars) }}</h1>
+
+        <div class="well">
+            <div id="content">{{ page.content_with_vars(vars)|safe }}</div>
+        </div>
+
+        <hr>
+
+        <div id="links">
+            {% if page.links %}
+                <h3>Continue story ...</h3>
+                <div class="list-group">
+                    {% for link in page.links %}
+                        <a href="{{ url_for('follow_link', story_title=story.slug, page_id=page.id, link_id=loop.index0) }}"
+                           class="list-group-item">
+                            {{ put_vars(link.text, vars) }}
+                                    {% if link.threshold %}
+                                        <span class="label label-primary">{{ put_vars(link.threshold, vars) }}</span>{% endif %}
+                        </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <h4>It seems your story ends here ...</h4>
+                <a href="{{ url_for('reset', story_title=story.slug) }}">Retry
+                    ?</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="well">
+
+            <h3>Progress</h3>
+            {% with progress = story.progress(page.id) %}
+                <div class="progress" style="">
+                    <div class="progress-bar progress-bar-{% if page.id == len(story.pages) %}success{% elif len(page.links) %}info{% else %}danger{% endif %}"
+                         role="progressbar" aria-valuenow="{{ progress }}"
+                         aria-valuemin="0" aria-valuemax="100"
+                         style="width: {{ progress }}%;">
+                        {{ page.id }} / {{ len(story.pages) }}
+                    </div>
+                </div>
+            {% endwith %}
+
+            <p>
+                <a href="{{ url_for('reset', story_title=slugify(story.title)) }}">Reset
+                    story</a>
+            </p>
+
+
+            {% if len(vars) %}
+                <hr>
+
+                <h3>Variables</h3>
+
+                <table class="table table-condensed">
+                    <tr>
+                        <td><strong>Name</strong></td>
+                        <td><strong>Value</strong></td>
+                    </tr>
+                    {% for k, v in vars.iteritems() %}
+                        <tr>
+                            <td>{{ k }}</td>
+                            <td>{{ v }}</td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}Interactive stories{% endblock %}
+
+{% block content %}
+    <div class="col-md-12">
+
+        <h1>Welcome on the website where <b>you</b> are the hero !</h1>
+
+        <a href="{{ url_for('story_list') }}">
+            <h3>Stories</h3>
+        </a>
+    </div>
+{% endblock %}

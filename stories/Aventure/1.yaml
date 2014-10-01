@@ -1,0 +1,26 @@
+title: "Le commencement"
+id: 1
+vars:
+ - force: 1
+ - intelligence: 3
+ - name: The hero
+
+next:
+ - text: Vous tentez de vous échapper
+   threshold: 2d6 < $intelligence
+   success: 2
+   failure: 3
+ - text: Vous grimpez sur la pile instable de cartons
+   threshold: 75%
+   success: 4
+   failure: 3
+ - text: Vous sortez par la porte
+   id: 2
+
+content: |
+ # Il etait une fois ... $name
+
+ un gentil garcon
+
+     - qui faisait ceci
+     - et qui faisait cela

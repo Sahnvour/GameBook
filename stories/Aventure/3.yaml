@@ -1,0 +1,10 @@
+title: "La chute"
+id: 3
+
+vars:
+ - force: 0
+ - intelligence: 1
+
+
+content: |
+ # Et vous vous ramassez lamentablement.

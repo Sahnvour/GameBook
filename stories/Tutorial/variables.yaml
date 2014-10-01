@@ -1,0 +1,42 @@
+title: Variables
+id: 7
+
+next:
+ - text: Finally ...
+   id: 8
+
+vars:
+ - variablesInDaHouse: true
+ - lastFinalFantasy: 15
+ - myNameIs: Slim Shady
+ - nameVar: "$myNameIs"
+ - numVar: "$lastFinalFantasy"
+
+content: |
+ #### Branching stories are cool, but they become far better when variables come to play.
+
+ The pages can define variables that are assigned a value when the user reaches
+ them. You can see the ones defined on this page in the right column.
+
+ The syntax to declare variables is the following:
+ ```
+ vars:
+  - aNumber: 32
+  - aBoolean: true
+  - aString: Hello world!
+ ```
+ Variable names must be composed only of ascii letters, and are case-sensitive.
+
+ Variables can be used anywhere in the content of a page, in its title, in link
+ texts and, last but not least, in thresholds. When you want to use their value,
+ just write their name preceded by a `$`.
+
+ Examples:
+ - `$nameVar` will expand to `$myNameIs`
+ - `2d$numVar > 20` will expand to `2d15 > 20`
+
+ You can see how I used them to trick the system for displaying things with a $.
+ The variables are very basic and can only be assigned or displayed, no
+ computations are possible.
+
+ If a page redefines an existent variable, its value is updated.

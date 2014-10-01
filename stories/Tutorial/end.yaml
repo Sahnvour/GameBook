@@ -1,0 +1,17 @@
+title: Various information
+id: 8
+
+content: |
+ #### This page lists various things about how stories work, in order to avoid incomprehensible errors.
+
+ - The first page of every story is the one with `id: 1`, and
+   an error will happen if it's not found.
+ - The server assumes all page ids are contiguous (ex: from 1 to 16, not 1 to 5
+   then 8 to 20). It won't complain against it, but this is better in order:
+ - To give an approximate progression, the server also assumes that the page
+   with the biggest id is the last one, and is the correct end of the story.
+ - The yaml structure of pages must be followed strictly, as it has not been
+   tested extensively.
+ - Variables are kept between pages, even if not used.
+ - An error in a story file will result in an exception being raised, and will
+   stop the server from starting

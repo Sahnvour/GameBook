@@ -1,0 +1,46 @@
+title: Page structure
+id: 2
+
+next:
+ - text: Links
+   id: 3
+
+content: |
+ ### A page is a [yaml](https://en.wikipedia.org/wiki/YAML) file 
+
+ Its name isn't important to the application, but it should contain **mandatory
+ fields**:
+
+ |Field name|Role|
+ |----------|----|
+ |id        |Page number used to identify it|
+ |title|Title of the page|
+ |content|Content of the page, in [Markdown](https://en.wikipedia.org/wiki/Markdown) format|
+ 
+ As an example, here is the yaml version of this very page:
+
+ ```yaml
+     title: Page structure
+     id: 2
+
+     content: |
+     # Page structure
+
+     ### A page is a [yaml](https://en.wikipedia.org/wiki/YAML) file 
+
+     Its name isn't important to the application, but it should contain **mandatory
+     fields**:
+
+     |Field name|Role|
+     |----------|----|
+     |id|Page number used to identify it|
+     |title|Title of the page|
+     |content|Content of the page, in [Markdown](https://en.wikipedia.org/wiki/Markdown) format|
+     
+     As an example, here is the yaml version of this very page:
+ ```
+
+ **Important note**:
+
+ The content of the page, located after the linebreak at ` content: |`, needs to
+ have at least one space at the beginning of each line to be interpreted as text.

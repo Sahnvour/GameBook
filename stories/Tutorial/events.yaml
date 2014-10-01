@@ -1,0 +1,50 @@
+title: Random events
+id: 4
+
+next:
+ - text: Try rolling a few dices
+   threshold: 2d6 > 8
+   success: 5
+   failure: 6
+ - text: Or a percentage
+   threshold: 66%
+   success: 5
+   failure: 6
+
+content: |
+ Sometimes you want to add some randomness to your story. Random events will
+ happen when following a link.
+
+ There are two types of random events:
+ - based on dices
+ - with a percentage of success
+
+ each type needs a `threshold` field.
+
+ ### Dice rolls
+ You can specify how many dices, of how many faces you want; and compare it to
+ an arbitrary value.
+
+ Some example:
+ - `1d6 = 5`
+ - `2d18 > 30`
+ - `36d2 < 54`
+
+ ### Percentages
+ These ones are simpler, just write it in a natural way like so: `66%`.
+
+ ### yaml structure
+ They share the same structure as simple links, but have some fields more (and
+ 	no `id`):
+ 
+ ```yaml
+ next:
+ - text: Try rolling a few dices
+   threshold: 2d6 > 8
+   success: 5
+   failure: 6
+ - text: Or a percentage
+   threshold: 66%
+   success: 5
+   failure: 6
+ ```

@@ -1,0 +1,11 @@
+title: "Climbing"
+id: 4
+vars:
+ - force: 1
+ - intelligence: 1
+
+
+content: |
+ # Vous êtes maintenant perché sur votre pile de cartons.
+ ### C'est cool.
+ ###### Mais pas super utile.

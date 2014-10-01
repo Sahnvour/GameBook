@@ -1,0 +1,12 @@
+title: Failure
+id: 6
+
+next:
+ - text: Variables
+   id: 7
+
+content: |
+ # Booh...
+
+ The random event you choose failed. You can see the orange notification at
+ the top of the page. In case of a success, it will warn you too but in green.

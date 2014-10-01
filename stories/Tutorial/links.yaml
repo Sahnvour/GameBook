@@ -1,0 +1,22 @@
+title: Links
+id: 3
+
+next:
+ - text: Random events
+   id: 4
+
+content: |
+ # Links between pages
+
+ You can add as many links to other pages as you like, including pages that
+ have already been visited.
+
+ Just add a field `next` to your page, with items like follow:
+
+ ```
+ next:
+  - text: Displayed text giving information on link
+    id: 8
+ ```
+
+ Of coure, change `8` by the id of the desired page.
